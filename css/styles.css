@@ -1,0 +1,232 @@
+/* Star Player Dependency Analyzer Styles */
+
+/* General Styles */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card {
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.card-header {
+    font-weight: 600;
+}
+
+/* Progress Bar Styles */
+.progress-container {
+    width: 100%;
+    margin: 20px auto;
+}
+
+.step-progress-bar {
+    counter-reset: step;
+    display: flex;
+    padding: 0;
+}
+
+.step-progress-bar li {
+    list-style-type: none;
+    flex: 1;
+    position: relative;
+    text-align: center;
+    font-weight: 500;
+    color: #6c757d;
+}
+
+.step-progress-bar li:before {
+    content: counter(step);
+    counter-increment: step;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border: 2px solid #ddd;
+    display: block;
+    text-align: center;
+    margin: 0 auto 10px auto;
+    border-radius: 50%;
+    background-color: white;
+    color: #6c757d;
+    position: relative;
+    z-index: 2;
+}
+
+.step-progress-bar li:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #ddd;
+    top: 15px;
+    left: -50%;
+    z-index: 1;
+}
+
+.step-progress-bar li:first-child:after {
+    content: none;
+}
+
+.step-progress-bar li.active {
+    color: #0d6efd;
+}
+
+.step-progress-bar li.active:before {
+    border-color: #0d6efd;
+    background-color: #0d6efd;
+    color: white;
+}
+
+.step-progress-bar li.active + li:after {
+    background-color: #0d6efd;
+}
+
+/* Form Styles */
+.form-label {
+    font-weight: 500;
+}
+
+.individual-entry, .area-entry {
+    transition: all 0.3s ease;
+    background-color: #fff;
+}
+
+.individual-entry:hover, .area-entry:hover {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    background-color: #f8f9fa;
+}
+
+/* Assessment Matrix Styles */
+.assessment-matrix {
+    margin-bottom: 30px;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.matrix-header {
+    background-color: #f8f9fa;
+    padding: 10px 15px;
+    border-bottom: 1px solid #dee2e6;
+    font-weight: 600;
+}
+
+.matrix-body {
+    padding: 15px;
+}
+
+.assessment-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.assessment-row:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.area-label {
+    flex: 1;
+    font-weight: 500;
+}
+
+.rating-container {
+    display: flex;
+    align-items: center;
+    flex: 2;
+}
+
+.rating-label {
+    width: 30px;
+    text-align: center;
+}
+
+/* Results Styles */
+.risk-meter {
+    position: relative;
+    width: 200px;
+    height: 100px;
+    margin: 0 auto;
+    background-image: linear-gradient(to right, #28a745, #ffc107, #dc3545);
+    border-radius: 100px 100px 0 0;
+    overflow: hidden;
+}
+
+.risk-needle {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    height: 95px;
+    width: 2px;
+    background-color: #000;
+    transform-origin: bottom center;
+    transform: rotate(0deg);
+    transition: transform 1s ease-in-out;
+}
+
+.risk-needle::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -4px;
+    width: 10px;
+    height: 10px;
+    background-color: #000;
+    border-radius: 50%;
+}
+
+#overallScoreValue {
+    font-weight: 700;
+    color: #0d6efd;
+}
+
+/* Recommendations Styles */
+.recommendation-item {
+    margin-bottom: 15px;
+    padding: 15px;
+    border-left: 4px solid #0d6efd;
+    background-color: #f8f9fa;
+    border-radius: 0 8px 8px 0;
+}
+
+.recommendation-title {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.recommendation-description {
+    margin-bottom: 0;
+    color: #6c757d;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .step-progress-bar li {
+        font-size: 0.8rem;
+    }
+    
+    .step-progress-bar li:before {
+        width: 25px;
+        height: 25px;
+        line-height: 25px;
+    }
+    
+    .assessment-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .area-label {
+        margin-bottom: 10px;
+    }
+    
+    .rating-container {
+        width: 100%;
+    }
+}
